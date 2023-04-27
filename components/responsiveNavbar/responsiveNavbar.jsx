@@ -1,24 +1,17 @@
 import { Navbar, Link, Text, Avatar, Dropdown } from "@nextui-org/react";
-import { Layout } from "./Layout.jsx";
-import { AcmeLogo } from "./AcmeLogo.jsx";
+import { useRouter } from 'next/router';
 
 export default function ResponsiveNavbar() {
   const collapseItems = [
-    "Profile",
-    "Dashboard",
-    "Activity",
-    "Analytics",
-    "System",
-    "Deployments",
-    "My Settings",
-    "Team Settings",
-    "Help & Feedback",
-    "Log Out",
+    "Home",
+    "Courses",
+    "Mentors",
+    "About Us"
   ];
+  const router = useRouter();
 
   return (
-    <Layout>
-      <Navbar isBordered variant="sticky">
+      <Navbar isBordered variant="floating">
         <Navbar.Toggle showIn="xs" />
         <Navbar.Brand
           css={{
@@ -27,24 +20,23 @@ export default function ResponsiveNavbar() {
             },
           }}
         >
-          <AcmeLogo />
-          <Text b color="inherit" hideIn="xs">
-            ACME
-          </Text>
+          {/* logo */}
+          <img src="/assets/TLOGO.png" alt="LOGO-img" width={130} height={60} />
         </Navbar.Brand>
         <Navbar.Content
           enableCursorHighlight
-          activeColor="warning"
+          activeColor="primary"
           hideIn="xs"
-          variant="highlight"
+          variant="underline-rounded"
         >
-          <Navbar.Link href="#">Features</Navbar.Link>
-          <Navbar.Link isActive href="#">
-            Customers
+          <Navbar.Link isActive={router.pathname === '/'} href="/">Home</Navbar.Link>
+          <Navbar.Link isActive={router.hash === '#courses'} href="#courses" >
+            Courses
           </Navbar.Link>
-          <Navbar.Link href="#">Pricing</Navbar.Link>
-          <Navbar.Link href="#">Company</Navbar.Link>
+          <Navbar.Link isActive={router.hash === '#mentors_section'} href="#mentors_section">Mentors</Navbar.Link>
+          <Navbar.Link isActive={router.hash === '#aboutUs_section'} href="#aboutUs_section">About us</Navbar.Link>
         </Navbar.Content>
+        {/* avatar of logged in */}
         <Navbar.Content
           css={{
             "@xs": {
@@ -59,7 +51,7 @@ export default function ResponsiveNavbar() {
                 <Avatar
                   bordered
                   as="button"
-                  color="warning"
+                  color="primary"
                   size="md"
                   src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
                 />
@@ -67,7 +59,7 @@ export default function ResponsiveNavbar() {
             </Navbar.Item>
             <Dropdown.Menu
               aria-label="User menu actions"
-              color="warning"
+              color="primary"
               onAction={(actionKey) => console.log({ actionKey })}
             >
               <Dropdown.Item key="profile" css={{ height: "$18" }}>
@@ -96,15 +88,14 @@ export default function ResponsiveNavbar() {
             </Dropdown.Menu>
           </Dropdown>
         </Navbar.Content>
+
         <Navbar.Collapse disableAnimation>
           {collapseItems.map((item, index) => (
             <Navbar.CollapseItem
               key={item}
-              activeColor="warning"
-              css={{
-                color: index === collapseItems.length - 1 ? "$error" : "",
-              }}
-              isActive={index === 2}
+              activeColor="primary"
+             
+              isActive={index === 0}
             >
               <Link
                 color="inherit"
@@ -119,6 +110,5 @@ export default function ResponsiveNavbar() {
           ))}
         </Navbar.Collapse>
       </Navbar>
-    </Layout>
   );
 }

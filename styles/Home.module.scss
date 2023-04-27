@@ -1,0 +1,61 @@
+.container{
+    padding: 2% 7%;
+}
+.banner{
+    display: flex;
+    justify-content: space-between;
+    gap: 10%;
+    .banner_text{
+        width : 55%;
+        h1{
+            span{
+                color: #0072F5;
+            }
+        }
+        .button_group{
+            display: flex;
+            align-items: center;
+            gap: 3%;
+            margin-top: 5%;
+        }
+    }
+    .banner_img{
+       img{
+        height: 100%;
+        width: 100%;
+       }
+    } 
+}
+.courses_categories{
+    text-align: center;
+    .cardsContainer{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 3vw;
+    }
+}
+
+.mentors_section{
+    text-align: center;
+    margin-top: 2vh;
+}
+.about_section{
+    text-align: center;
+    margin-top: 2vh;
+
+}
+// mobile responsive
+@media screen and (max-width: 500px) {
+    .banner{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        .banner_text{
+            text-align: center;
+            width: 100%;
+        }
+    
+    }
+
+}

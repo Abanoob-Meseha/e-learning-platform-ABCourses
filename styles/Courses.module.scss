@@ -1,0 +1,12 @@
+.container{
+    padding: 2%;
+    text-align: center;
+    .category_section{
+        margin-top: 4vh;
+        .categoryTitle{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+    }
+}

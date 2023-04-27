@@ -1,0 +1,19 @@
+[
+    {
+        "name": "Web development" ,
+        "number_courses" : 3,
+        "img" : "https://assets-global.website-files.com/6410ebf8e483b5bb2c86eb27/6410ebf8e483b53d6186fc53_ABM%20College%20Web%20developer%20main.jpg"
+    }
+    ,
+    {
+        "name": "Embedded systems" ,
+        "number_courses" : 2,
+        "img" : "https://externlabs.com/blogs/wp-content/uploads/2021/10/iot-embedded-system-prev.webp"
+    }
+    ,
+    {
+        "name": "Data science" ,
+        "number_courses" : 2,
+        "img" : "https://thedatascientist.com/wp-content/uploads/2021/02/data-science.jpg"
+    }
+]

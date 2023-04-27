@@ -1,0 +1,54 @@
+import styles from '../styles/Home.module.scss';
+import { Button, Link } from '@nextui-org/react';
+import {BsFillPlayCircleFill } from 'react-icons/bs';
+import CategoryCard from '../components/categoryCard/categoryCard';
+
+
+
+export default function Home() {
+  const categories = require('../data/categories.json')
+  return (
+    <div >
+      
+      <main  className={styles.container}>
+        {/* banner */}
+        <div className={styles.banner}>
+            <div className={styles.banner_text}>
+              <h1> <span>Learn</span> on your schedule anytime, anywhere from any device.</h1>
+              <p>Build your skill from world class companies and mentors you can learn online and get your certificates and degrees to enhance your career.</p>
+              <div className={styles.button_group}>
+                <Button as={Link} color="primary" href='/courses'>Explore</Button>
+                <Button bordered color="primary" icon={<BsFillPlayCircleFill />}>
+                  Watch 
+                </Button>
+              </div>
+            </div>
+            <div className={styles.banner_img}>
+              <img src="/assets/banner_img.avif" alt="banner-img" />
+            </div>
+        </div>     
+        {/* Courses Categories */}
+        <div className={styles.courses_categories} id='courses'>
+          <h1>Explore all Categories</h1>
+          <div className={styles.cardsContainer}>
+              {
+                categories.map((category , index)=>{
+                  return(
+                    <CategoryCard category={category} />
+                  )
+                })
+              }
+          </div>
+        </div>
+        {/* Mentors section */}
+        <div className={styles.mentors_section} id='mentors_section'>
+          <h1> Meet our Mentors</h1>
+        </div>
+        {/* About Us section */}
+        <div className={styles.about_section} id='aboutUs_section'>
+            <h1>About Us</h1>
+        </div>
+      </main>
+    </div>
+  )
+}
