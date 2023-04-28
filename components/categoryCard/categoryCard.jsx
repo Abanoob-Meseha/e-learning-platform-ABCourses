@@ -1,8 +1,9 @@
 import { Button , Card , Text} from '@nextui-org/react';
+import styles from './categoryCard.module.scss'
 
 const CategoryCard = (props) => {
   return (
-    <Card css={{ w: "25vw", h: "40vh" }}>
+    <Card className={styles.categoryCard}>
         <Card.Header css={{ position: "absolute", zIndex: 1, top: 5 }}>
             <Text h3 color="black" weight='bold' css={{backgroundColor: 'White' , borderRadius:'10px' , padding:'1%'}}>
                 {props.category.name || 'Category Name'}
@@ -10,7 +11,7 @@ const CategoryCard = (props) => {
         </Card.Header>
         <Card.Body css={{ p: 0 }}>
         <Card.Image
-            src={props.category.img || "https://nextui.org/images/card-example-5.jpeg"}
+            src={props.category.img || "/assets/TLOGO.png"}
             objectFit="fill"
             autoResize
             alt="Relaxing app background"

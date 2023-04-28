@@ -9,7 +9,7 @@ export const CourseCard = (props) => (
     </Card.Header>
     <Card.Body css={{ p: 0 }}>
       <Card.Image
-        src={props.img || "https://nextui.org/images/card-example-5.jpeg"}
+        src={props.img || "/assets/TLOGO.png"}
         objectFit="fill"
         autoResize
         alt="Relaxing app background"

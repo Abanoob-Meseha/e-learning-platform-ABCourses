@@ -2,6 +2,7 @@ import styles from '../styles/Home.module.scss';
 import { Button, Link } from '@nextui-org/react';
 import {BsFillPlayCircleFill } from 'react-icons/bs';
 import CategoryCard from '../components/categoryCard/categoryCard';
+import MentorCard from '../components/mentorCard/mentorCard';
 
 
 
@@ -43,10 +44,22 @@ export default function Home() {
         {/* Mentors section */}
         <div className={styles.mentors_section} id='mentors_section'>
           <h1> Meet our Mentors</h1>
+          <div className={styles.mentorsContainer}>
+            <MentorCard img={'https://www.pngarts.com/files/3/Smiling-Man-PNG-High-Quality-Image.png'}/>
+            <MentorCard img={'https://foxvalleysurgical.com/wp-content/uploads/2021/01/smiling-man.png'}/>
+            <MentorCard img={'https://www.thewhitetusk.com/wp-content/uploads/2023/03/treatement-girl.webp'}/>
+            <MentorCard img={'https://media.learningforce.ie/wp-content/uploads/2021/10/19150449/smiling-spec-girl-1.png'}/>
+          </div>
         </div>
-        {/* About Us section */}
-        <div className={styles.about_section} id='aboutUs_section'>
-            <h1>About Us</h1>
+        {/* partner section */}
+        <div className={styles.partner_section} id='partner_section'>
+            <h1>Our Partner</h1>
+            <div className={styles.partner_container}>
+              <img src="https://res.cloudinary.com/social-engine/image/upload/v1614254202/courses/Website_Logos_250_x_100_24.02.2021_PNG-09_rdkr9u.png" alt="" />
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Amazon_Web_Services_Logo.svg/512px-Amazon_Web_Services_Logo.svg.png" alt="" />  
+              <img src="https://zeevector.com/wp-content/uploads/Cisco-Logo-PNG@ZEEVECTOR.COM_.png" alt="" />
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/2560px-Google_2015_logo.svg.png" alt="" />
+            </div>
         </div>
       </main>
     </div>

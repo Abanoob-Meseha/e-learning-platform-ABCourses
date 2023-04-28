@@ -34,7 +34,7 @@ export default function ResponsiveNavbar() {
             Courses
           </Navbar.Link>
           <Navbar.Link isActive={router.hash === '#mentors_section'} href="#mentors_section">Mentors</Navbar.Link>
-          <Navbar.Link isActive={router.hash === '#aboutUs_section'} href="#aboutUs_section">About us</Navbar.Link>
+          <Navbar.Link isActive={router.hash === '#partner_section'} href="#aboutUs_section">About us</Navbar.Link>
         </Navbar.Content>
         {/* avatar of logged in */}
         <Navbar.Content

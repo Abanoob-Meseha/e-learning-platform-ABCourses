@@ -1,0 +1,10 @@
+.categoryCard{
+    width: 25vw;
+    height: 40vh;
+}
+.categoryCard:hover{
+    cursor: pointer;
+    width: 28vw;
+    height: 42vh;
+    border: solid 8px rgb(0, 119, 255);
+}
