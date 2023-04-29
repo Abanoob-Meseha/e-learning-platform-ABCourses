@@ -3,11 +3,14 @@ import { Button, Link } from '@nextui-org/react';
 import {BsFillPlayCircleFill } from 'react-icons/bs';
 import CategoryCard from '../components/categoryCard/categoryCard';
 import MentorCard from '../components/mentorCard/mentorCard';
+import { useState ,useEffect} from 'react';
+
 
 
 
 export default function Home() {
   const categories = require('../data/categories.json')
+  
   return (
     <div >
       
@@ -18,8 +21,8 @@ export default function Home() {
               <h1> <span>Learn</span> on your schedule anytime, anywhere from any device.</h1>
               <p>Build your skill from world class companies and mentors you can learn online and get your certificates and degrees to enhance your career.</p>
               <div className={styles.button_group}>
-                <Button as={Link} color="primary" href='/courses'>Explore</Button>
-                <Button bordered color="primary" icon={<BsFillPlayCircleFill />}>
+                <Button as={Link} color="primary" href='/courses' size={'lg'}>Explore</Button>
+                <Button bordered color="primary" icon={<BsFillPlayCircleFill />} size={'lg'}>
                   Watch 
                 </Button>
               </div>

@@ -45,7 +45,7 @@ export const CourseCard = (props) => (
             </Col>
           </Row>
         </Col>
-        <Col>
+        <Col span={4.5}>
           <Row justify="flex-end">
             <Button
               flat

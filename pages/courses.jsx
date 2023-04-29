@@ -1,7 +1,8 @@
 
-import { CourseCard } from '../components/courseCard/courseCard'
+import SearchFilter from '../components/searchFilter/searchFilter'
 import CoursesCarousal from '../coursesCarousal/coursesCarousal'
 import styles from '../styles/Courses.module.scss'
+
 
 const Courses = () => {
     const categories = require('../data/categories.json')
@@ -9,7 +10,7 @@ const Courses = () => {
     <main className={styles.container}>
         <h1> Explore Courses from different Categories</h1>
         <div className={styles.filter_section}>
-            <input type="search" name="" id="" />
+            <SearchFilter/>
         </div>
         <div className={styles.coursesContainer}>
             {

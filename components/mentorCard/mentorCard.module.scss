@@ -8,3 +8,16 @@
         border-radius: 50%;
     }
 }
+
+@media screen and (max-width: 500px) {
+    .mentorCard_container{
+        width: 40vw;
+        height: 32vh;
+        img{
+            width: 40vw;
+            height: 25vh;
+            border: solid 8px rgb(0, 132, 255);
+            border-radius: 50%;
+        }
+    }
+}

@@ -11,7 +11,7 @@ export default function ResponsiveNavbar() {
   const router = useRouter();
 
   return (
-      <Navbar isBordered variant="floating">
+      <Navbar isBordered variant="floating" css={{margin: '0% auto'}}>
         <Navbar.Toggle showIn="xs" />
         <Navbar.Brand
           css={{
@@ -29,12 +29,12 @@ export default function ResponsiveNavbar() {
           hideIn="xs"
           variant="underline-rounded"
         >
-          <Navbar.Link isActive={router.pathname === '/'} href="/">Home</Navbar.Link>
-          <Navbar.Link isActive={router.hash === '#courses'} href="#courses" >
+          <Navbar.Link isActive href="/">Home</Navbar.Link>
+          <Navbar.Link  href="#courses" >
             Courses
           </Navbar.Link>
-          <Navbar.Link isActive={router.hash === '#mentors_section'} href="#mentors_section">Mentors</Navbar.Link>
-          <Navbar.Link isActive={router.hash === '#partner_section'} href="#aboutUs_section">About us</Navbar.Link>
+          <Navbar.Link href="#mentors_section">Mentors</Navbar.Link>
+          <Navbar.Link href="#aboutUs_section">About us</Navbar.Link>
         </Navbar.Content>
         {/* avatar of logged in */}
         <Navbar.Content
@@ -102,7 +102,7 @@ export default function ResponsiveNavbar() {
                 css={{
                   minWidth: "100%",
                 }}
-                href="#"
+                href="/"
               >
                 {item}
               </Link>

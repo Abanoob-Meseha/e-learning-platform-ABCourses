@@ -8,3 +8,16 @@
     height: 42vh;
     border: solid 8px rgb(0, 119, 255);
 }
+
+@media screen and (max-width: 500px) {
+    .categoryCard{
+        width: 85vw;
+        height: 30vh;
+    }
+    .categoryCard:hover{
+        cursor: pointer;
+        width: 90vw;
+        height: 35vh;
+        border: solid 8px rgb(0, 119, 255);
+    }
+}

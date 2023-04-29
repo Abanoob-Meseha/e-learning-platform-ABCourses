@@ -14,9 +14,12 @@
         }
         .button_group{
             display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
             align-items: center;
             gap: 3%;
             margin-top: 5%;
+            
         }
     }
     .banner_img{
@@ -32,6 +35,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        flex-wrap: wrap;
         gap: 3vw;
     }
 }
@@ -44,6 +48,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        flex-wrap: wrap;
         gap: 5vw;
     }
 }
@@ -67,15 +72,23 @@
 }
 // mobile responsive
 @media screen and (max-width: 500px) {
+    .container{
+        padding: 2% 1%;
+    }
     .banner{
         display: flex;
         align-items: center;
         flex-direction: column;
+        text-align: center;
         .banner_text{
             text-align: center;
             width: 100%;
         }
     
+    }
+    .cardsContainer{
+        flex-direction: column;
+        gap: 0;
     }
 
 }
