@@ -25,7 +25,7 @@ const CoursesCarousal = (props) => {
     handleResize();
 
     return () => window.removeEventListener('resize', handleResize);
-  }, []);
+  }, [CoursePerCarousal]);
 
   return (
     <div className={styles.carousalContainer}>
