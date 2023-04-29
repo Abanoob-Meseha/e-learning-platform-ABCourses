@@ -21,7 +21,7 @@ const Courses = () => {
                                 <h2>{category.name}</h2>
                                 <h4>{category.number_courses} courses</h4>
                             </div>
-                            <CoursesCarousal category={category.name}/>
+                            <CoursesCarousal category={category}/>
                         </div>
                     )
                 })

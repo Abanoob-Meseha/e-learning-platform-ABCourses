@@ -1,0 +1,11 @@
+.courseCard{
+    width: 35vw;
+    height: 50vh;
+}
+
+@media screen and (max-width: 500px) {
+    .courseCard{
+        width: 65vw;
+        height: 32vh;
+    }
+}

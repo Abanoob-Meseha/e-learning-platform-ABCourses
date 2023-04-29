@@ -1,7 +1,8 @@
 import { Card, Col, Row, Button, Text } from "@nextui-org/react";
+import styles from './courseCard.module.scss'
 
 export const CourseCard = (props) => (
-  <Card css={{ w: "35vw", h: "50vh" }}>
+  <Card className={styles.courseCard} >
     <Card.Header css={{ position: "absolute", zIndex: 1, top: 5 }}>
         <Text h3 color="black" weight='bold' css={{backgroundColor: 'White' , borderRadius:'10px' , padding:'1%'}}>
             {props.category || 'Category Name'}
