@@ -15,7 +15,7 @@
         .button_group{
             display: flex;
             flex-wrap: wrap;
-            justify-content: center;
+            justify-content: left;
             align-items: center;
             gap: 3%;
             margin-top: 5%;
@@ -48,7 +48,6 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        flex-wrap: wrap;
         gap: 5vw;
     }
 }
@@ -83,12 +82,20 @@
         .banner_text{
             text-align: center;
             width: 100%;
+            .button_group{
+                justify-content: center;
+                gap: 2vh;
+            }
         }
     
     }
+    
     .cardsContainer{
         flex-direction: column;
         gap: 0;
+    }
+    .mentorsContainer{
+        flex-wrap: wrap;
     }
 
 }

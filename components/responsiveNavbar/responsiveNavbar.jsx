@@ -1,5 +1,7 @@
-import { Navbar, Link, Text, Avatar, Dropdown } from "@nextui-org/react";
+import { Navbar, Link, Text, Avatar, Dropdown ,Button } from "@nextui-org/react";
 import { useRouter } from 'next/router';
+import LoginModal from "../loginModal/loginModal";
+import SignupModal from "../signupModal/signupModal";
 
 export default function ResponsiveNavbar() {
   const collapseItems = [
@@ -35,6 +37,12 @@ export default function ResponsiveNavbar() {
           </Navbar.Link>
           <Navbar.Link href="#mentors_section">Mentors</Navbar.Link>
           <Navbar.Link href="#aboutUs_section">About us</Navbar.Link>
+        </Navbar.Content>
+
+        {/* Sign in / up */}
+        <Navbar.Content >
+          <LoginModal/>
+          <SignupModal/>
         </Navbar.Content>
         {/* avatar of logged in */}
         <Navbar.Content
