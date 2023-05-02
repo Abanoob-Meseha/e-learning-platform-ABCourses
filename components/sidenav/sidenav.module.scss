@@ -1,0 +1,48 @@
+.sidebar{
+    background-color: white;
+    width: 20vw;
+    margin: 0% 0%;
+    z-index: 9999;
+    padding: 2% 0%;
+    border: solid 2px #869A9C;
+    border-radius: 15px;
+    margin-right: 0%;
+    max-height: 60vh;
+
+    .sidenav_item{
+        display: flex;
+        color: #546163;
+        gap: 1vw;
+        border-radius: 30px;
+        padding-left: 10%;
+        align-items: center;
+        margin-bottom: 3vh;
+    }
+    .sidenav_item:hover{
+        background-color: #869A9C;
+        color: white;
+        cursor: pointer;
+    }
+    .active{
+        background-color: #869A9C;
+        color: white;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+}
+
+@media screen and (max-width:500px){
+    .sidebar{
+        width: 16vw;
+
+        .sidenav_item{
+            display: flex;
+            color: #546163;
+            gap: 1vw;
+            border-radius: 10px;
+            padding: 20%;
+            margin-bottom: 6vh;
+        }
+        
+    }
+}

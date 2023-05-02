@@ -2,8 +2,10 @@ import { Navbar, Link, Text, Avatar, Dropdown ,Button } from "@nextui-org/react"
 import { useRouter } from 'next/router';
 import LoginModal from "../loginModal/loginModal";
 import SignupModal from "../signupModal/signupModal";
+import { useState } from "react";
 
 export default function ResponsiveNavbar() {
+  const [loggedIn, setloggedIn] = useState(true)
   const collapseItems = [
     "Home",
     "Courses",
@@ -40,7 +42,7 @@ export default function ResponsiveNavbar() {
         </Navbar.Content>
 
         {/* Sign in / up */}
-        <Navbar.Content >
+        <Navbar.Content css={{display: `${loggedIn ?'none':'flex'}`}}>
           <LoginModal/>
           <SignupModal/>
         </Navbar.Content>
@@ -51,6 +53,7 @@ export default function ResponsiveNavbar() {
               w: "12%",
               jc: "flex-end",
             },
+            display: `${loggedIn ?'flex':'none'}`
           }}
         >
           <Dropdown placement="bottom-right">

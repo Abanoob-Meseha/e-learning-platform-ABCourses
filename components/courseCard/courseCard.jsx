@@ -1,7 +1,12 @@
 import { Card, Col, Row, Button, Text } from "@nextui-org/react";
 import styles from './courseCard.module.scss'
+import { useState } from "react";
+import {HiArrowRightCircle} from 'react-icons/hi2'
 
-export const CourseCard = (props) => (
+
+export const CourseCard = (props) => {
+
+  return(
   <Card className={styles.courseCard} >
     <Card.Header css={{ position: "absolute", zIndex: 1, top: 5 }}>
         <Text h3 color="black" weight='bold' css={{backgroundColor: 'White' , borderRadius:'10px' , padding:'1%'}}>
@@ -48,23 +53,38 @@ export const CourseCard = (props) => (
         </Col>
         <Col span={4.5}>
           <Row justify="flex-end">
-            <Button
+              {
+              (props.enrolled) ? 
+              <Text
+              css={{ color: "inherit" }}
+              size={35}
+              weight="bold"
+              transform="uppercase"
+            >
+              <HiArrowRightCircle/>
+            </Text>
+             : 
+             <Button
               flat
               auto
               rounded
             >
-              <Text
-                css={{ color: "inherit" }}
-                size={12}
-                weight="bold"
-                transform="uppercase"
-              >
-                Enroll
-              </Text>
+             <Text
+              css={{ color: "inherit" }}
+              size={12}
+              weight="bold"
+              transform="uppercase"
+            >
+              Enroll
+            </Text>
             </Button>
+            }
+              
+            
           </Row>
         </Col>
       </Row>
     </Card.Footer>
   </Card>
-);
+)
+};

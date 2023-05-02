@@ -12,7 +12,7 @@ const CoursesCarousal = (props) => {
 
   useEffect(() => {
     function handleResize() {
-        if(window.innerWidth < 500){
+        if(window.innerWidth < 500 ){
             setCoursePerCarousal(1);
         }
         else{

@@ -3,6 +3,8 @@ import { Modal, Input, Row, Checkbox, Button, Text, Link } from "@nextui-org/rea
 import { Mail } from "../loginModal/Mail";
 import { Password } from "../loginModal/Password";
 import {BiUser} from 'react-icons/bi'
+// import {auth} from '../../firebase/firebaseConfig';
+
 
 export default function SignupModal() {
   const [visible, setVisible] = useState(false);
@@ -10,6 +12,23 @@ export default function SignupModal() {
   const closeHandler = () => {
     setVisible(false);
     console.log("closed");
+  };
+  
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [firstName, setfirstName] = useState('')
+  const [lastName, setlastName] = useState('')
+  const [confirmPassword, setconfirmPassword] = useState('')
+
+  const handleSignUp = async (event) => {
+    event.preventDefault();
+
+    // try {
+    //   const userCredential = await auth.createUserWithEmailAndPassword(email, password);
+    //   console.log(userCredential.user);
+    // } catch (error) {
+    //   console.error(error);
+    // }
   };
   return (
     <div>
@@ -40,6 +59,8 @@ export default function SignupModal() {
             size="lg"
             placeholder="First Name"
             contentLeft={<BiUser/>}
+            value={firstName}
+            onChange={(event) => setfirstName(event.target.value)}
           />
           <Input
             clearable
@@ -49,6 +70,8 @@ export default function SignupModal() {
             size="lg"
             placeholder="Last Name"
             contentLeft={<BiUser/>}
+            value={lastName}
+            onChange={(event) => setlastName(event.target.value)}
           />
           <Input
             clearable
@@ -58,6 +81,8 @@ export default function SignupModal() {
             size="lg"
             placeholder="Email"
             contentLeft={<Mail fill="currentColor" />}
+            value={email}
+            onChange={(event) => setEmail(event.target.value)}
           />
           <Input
             clearable
@@ -67,6 +92,8 @@ export default function SignupModal() {
             size="lg"
             placeholder="Password"
             contentLeft={<Password fill="currentColor" />}
+            value={password}
+            onChange={(event) => setPassword(event.target.value)}
           />
           <Input
             clearable
@@ -76,6 +103,8 @@ export default function SignupModal() {
             size="lg"
             placeholder="Confirm password"
             contentLeft={<Password fill="currentColor" />}
+            value={confirmPassword}
+            onChange={(event) => setconfirmPassword(event.target.value)}
           />
           <Row justify="space-between">
             <Checkbox>
@@ -87,7 +116,7 @@ export default function SignupModal() {
           <Button auto flat color="error" onPress={closeHandler}>
             Close
           </Button>
-          <Button auto onPress={closeHandler}>
+          <Button auto onPress={handleSignUp}>
             Sign Up
           </Button>
         </Modal.Footer>
