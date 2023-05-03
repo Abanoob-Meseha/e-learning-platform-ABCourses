@@ -1,31 +1,32 @@
 .sidebar{
-    background-color: white;
+    background-color: #105f7eb9;
     width: 20vw;
     margin: 0% 0%;
     z-index: 9999;
     padding: 2% 0%;
-    border: solid 2px #869A9C;
+    border: solid 2px white;
     border-radius: 15px;
     margin-right: 0%;
     max-height: 60vh;
 
     .sidenav_item{
         display: flex;
-        color: #546163;
+        color: white;
         gap: 1vw;
         border-radius: 30px;
-        padding-left: 10%;
+        padding-left: 5%;
         align-items: center;
         margin-bottom: 3vh;
+        font-weight: bold;
     }
     .sidenav_item:hover{
-        background-color: #869A9C;
-        color: white;
+        background-color: white;
+        color: #105f7eb9;
         cursor: pointer;
     }
     .active{
-        background-color: #869A9C;
-        color: white;
+        background-color: white;
+        color: #105f7eb9;
         border-top-right-radius: 0;
         border-bottom-right-radius: 0;
     }
@@ -37,7 +38,7 @@
 
         .sidenav_item{
             display: flex;
-            color: #546163;
+            color: #105f7eb9;
             gap: 1vw;
             border-radius: 10px;
             padding: 20%;

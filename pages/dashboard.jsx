@@ -23,7 +23,7 @@ const Dashboard = () => {
             <div>
               <div className={styles.contentTitle}>
                 <h2>My cousres</h2>
-                <Text>See All <HiArrowNarrowRight/></Text>
+                <Text css={{color:'inherit'}}>See All <HiArrowNarrowRight/></Text>
               </div>
               
               <div className={styles.myCourses}>
@@ -35,7 +35,7 @@ const Dashboard = () => {
             <div >
               <div className={styles.contentTitle}>
                 <h2>My Assignment</h2>
-                <Text>See All <HiArrowNarrowRight/></Text>
+                <Text css={{color:'inherit'}}>See All <HiArrowNarrowRight/></Text>
               </div>
               <div className={styles.myAssignments}>
                 <div className={styles.AssignmentNotify}>
@@ -66,7 +66,7 @@ const Dashboard = () => {
             <div>
               <div className={styles.contentTitle}>
                 <h2>Upcoming</h2>
-                <Text>See All <HiArrowNarrowRight/></Text>
+                <Text css={{color:'inherit'}}>See All <HiArrowNarrowRight/></Text>
               </div>
               <div>
                 <div className={styles.AssignmentNotify}>
@@ -89,7 +89,9 @@ const Dashboard = () => {
             </div>
             {/* Calendar */}
             <div>
-              <h2>Calendar</h2>
+              <div className={styles.contentTitle}>
+                <h2>Calendar</h2>
+              </div>
               <Calendar onChange={onChange} value={value} />
             </div>
           </div>

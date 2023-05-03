@@ -5,7 +5,7 @@ import SignupModal from "../signupModal/signupModal";
 import { useState } from "react";
 
 export default function ResponsiveNavbar() {
-  const [loggedIn, setloggedIn] = useState(true)
+  const [loggedIn, setloggedIn] = useState(false)
   const collapseItems = [
     "Home",
     "Courses",

@@ -4,7 +4,7 @@
     margin-top: 2vh;
     padding-right: 2%;
     .pageContent{
-        background-color: #486569a8;
+        background-color: white;
         padding: 2% 1%;
         flex-grow: 1;
         gap: 4%;
@@ -15,6 +15,8 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+            color: #105f7eb9;
+
         }
         .middleContent{
             width: 60%;
@@ -31,7 +33,6 @@
             width: 40%;
         }
         .AssignmentNotify{
-            color: white;
             border: solid 2px white;
             border-left: solid 7px green;
             border-radius: 15px;

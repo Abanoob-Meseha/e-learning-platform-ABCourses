@@ -3,10 +3,19 @@ import { Modal, Input, Row, Checkbox, Button, Text, Link } from "@nextui-org/rea
 import { Mail } from "../loginModal/Mail";
 import { Password } from "../loginModal/Password";
 import {BiUser} from 'react-icons/bi'
-// import {auth} from '../../firebase/firebaseConfig';
+import {signup_Email_password , createUserDocumentFromAuth} from '../../firebase/firebaseConfig'
+import { useRouter } from 'next/router';
 
+
+const defaultFormFields = {
+  displayName: '',
+  email: '',
+  password: '',
+  confirmPassword: '',
+};
 
 export default function SignupModal() {
+  const router = useRouter();
   const [visible, setVisible] = useState(false);
   const handler = () => setVisible(true);
   const closeHandler = () => {
@@ -14,27 +23,46 @@ export default function SignupModal() {
     console.log("closed");
   };
   
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [firstName, setfirstName] = useState('')
-  const [lastName, setlastName] = useState('')
-  const [confirmPassword, setconfirmPassword] = useState('')
+  const [formFields, setFormFields] = useState(defaultFormFields);
+  const { displayName, email, password, confirmPassword } = formFields;
 
-  const handleSignUp = async (event) => {
-    event.preventDefault();
+  const resetFormFields = () => {
+    setFormFields(defaultFormFields);
+  };
 
-    // try {
-    //   const userCredential = await auth.createUserWithEmailAndPassword(email, password);
-    //   console.log(userCredential.user);
-    // } catch (error) {
-    //   console.error(error);
-    // }
+  const handleSignUp = async () => {
+    // event.preventDefault();
+    if(password != confirmPassword){
+      alert("passwords doesn't match")
+      return;
+    }
+
+    try {
+      const {user} = await signup_Email_password(email , password);
+      await createUserDocumentFromAuth(user, { displayName });
+      resetFormFields();
+      closeHandler();
+      router.push('/');
+    } catch (error) {
+      if (error.code === 'auth/email-already-in-use') {
+        alert('Cannot create user, email already in use');
+      } else {
+        console.log('user creation encountered an error', error);
+      }
+    }
+  };
+  // form change handler
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+
+    setFormFields({ ...formFields, [name]: value });
   };
   return (
     <div>
       <Button auto color="default" shadow onPress={handler}>
         Sign Up
       </Button>
+      <form onSubmit={handleSignUp}>
       <Modal
         closeButton
         blur
@@ -57,22 +85,13 @@ export default function SignupModal() {
             fullWidth
             color="primary"
             size="lg"
-            placeholder="First Name"
+            placeholder="User Name"
             contentLeft={<BiUser/>}
-            value={firstName}
-            onChange={(event) => setfirstName(event.target.value)}
-          />
-          <Input
-            clearable
-            bordered
-            fullWidth
-            color="primary"
-            size="lg"
-            placeholder="Last Name"
-            contentLeft={<BiUser/>}
-            value={lastName}
-            onChange={(event) => setlastName(event.target.value)}
-          />
+            name="displayName"
+            value={displayName}
+            onChange={handleChange}
+            required
+            />
           <Input
             clearable
             bordered
@@ -82,8 +101,10 @@ export default function SignupModal() {
             placeholder="Email"
             contentLeft={<Mail fill="currentColor" />}
             value={email}
-            onChange={(event) => setEmail(event.target.value)}
-          />
+            name='email'
+            onChange={handleChange}
+            required
+            />
           <Input
             clearable
             bordered
@@ -93,8 +114,10 @@ export default function SignupModal() {
             placeholder="Password"
             contentLeft={<Password fill="currentColor" />}
             value={password}
-            onChange={(event) => setPassword(event.target.value)}
-          />
+            name="password"
+            onChange={handleChange}
+            required
+            />
           <Input
             clearable
             bordered
@@ -103,8 +126,10 @@ export default function SignupModal() {
             size="lg"
             placeholder="Confirm password"
             contentLeft={<Password fill="currentColor" />}
+            name='confirmPassword'
             value={confirmPassword}
-            onChange={(event) => setconfirmPassword(event.target.value)}
+            onChange={handleChange}
+            required
           />
           <Row justify="space-between">
             <Checkbox>
@@ -121,6 +146,7 @@ export default function SignupModal() {
           </Button>
         </Modal.Footer>
       </Modal>
+      </form>
     </div>
   );
 }
