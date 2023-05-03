@@ -1,1 +1,2 @@
-This is a starter template for [Learn Next.js](https://nextjs.org/learn).
+# ABCourses E-learning Platform
+## A Web app E-learning platform made using Next js and connected with firebase.
