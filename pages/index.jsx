@@ -3,8 +3,6 @@ import { Button, Link } from '@nextui-org/react';
 import {BsFillPlayCircleFill } from 'react-icons/bs';
 import CategoryCard from '../components/categoryCard/categoryCard';
 import MentorCard from '../components/mentorCard/mentorCard';
-import { useState ,useEffect} from 'react';
-
 
 
 
@@ -13,7 +11,6 @@ export default function Home() {
   
   return (
     <div >
-      
       <main  className={styles.container}>
         {/* banner */}
         <div className={styles.banner}>

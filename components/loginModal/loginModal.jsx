@@ -1,11 +1,14 @@
 import {React , useState , useContext} from "react";
-import { Modal, Input, Row, Checkbox, Button, Text, Link } from "@nextui-org/react";
+import { Modal, Input, Row, Checkbox, Button, Text, Link ,Loading} from "@nextui-org/react";
 import { Mail } from "./Mail";
 import { Password } from "./Password";
 import {
   signin_Email_Password,
 } from '../../firebase/firebaseConfig';
 import {UserContext} from '../../contexts/user.context'
+import { useRouter } from 'next/router';
+import { useGlobalState } from '../../pages/_app';
+
 
 const defaultFormFields = {
   email: '',
@@ -13,7 +16,11 @@ const defaultFormFields = {
 };
 
 export default function LoginModal() {
+  const router = useRouter();
   const [visible, setVisible] = useState(false);
+  const [loading , setLoading] = useState(false);
+  const [loggedIn, setLoggedIn] = useGlobalState('loggedIn')
+
   const handler = () => setVisible(true);
 
   const closeHandler = () => {
@@ -29,7 +36,8 @@ export default function LoginModal() {
     setFormFields(defaultFormFields);
   };
 
-  const handleSubmit = async () => {
+  const handleSignin = async () => {
+    setLoading(true)
     // event.preventDefault();
 
     try {
@@ -39,6 +47,8 @@ export default function LoginModal() {
       );
       resetFormFields();
       setCurrentUser(user);
+      await router.push('/dashboard').then(closeHandler()).then(setLoggedIn(true))
+      
     } catch (error) {
       switch (error.code) {
         case 'auth/wrong-password':
@@ -97,6 +107,7 @@ export default function LoginModal() {
             bordered
             fullWidth
             color="primary"
+            type="password"
             size="lg"
             placeholder="Password"
             contentLeft={<Password fill="currentColor" />}
@@ -115,8 +126,12 @@ export default function LoginModal() {
           <Button auto flat color="error" onPress={closeHandler}>
             Close
           </Button>
-          <Button auto onPress={handleSubmit}>
-            Login
+          <Button auto onPress={handleSignin}  >
+            {
+              loading?
+              <Loading color="currentColor" size="sm" />:
+              "Sign IN"
+            }
           </Button>
         </Modal.Footer>
       </Modal>

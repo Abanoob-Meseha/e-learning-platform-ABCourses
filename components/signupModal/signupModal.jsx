@@ -1,10 +1,12 @@
 import {React , useState} from "react";
-import { Modal, Input, Row, Checkbox, Button, Text, Link } from "@nextui-org/react";
+import { Modal, Input, Row, Checkbox, Button, Text, Link ,Loading} from "@nextui-org/react";
 import { Mail } from "../loginModal/Mail";
 import { Password } from "../loginModal/Password";
 import {BiUser} from 'react-icons/bi'
 import {signup_Email_password , createUserDocumentFromAuth} from '../../firebase/firebaseConfig'
 import { useRouter } from 'next/router';
+import { useGlobalState } from '../../pages/_app';
+
 
 
 const defaultFormFields = {
@@ -17,6 +19,11 @@ const defaultFormFields = {
 export default function SignupModal() {
   const router = useRouter();
   const [visible, setVisible] = useState(false);
+  const [loading , setLoading] = useState(false);
+  const [loggedIn, setLoggedIn] = useGlobalState('loggedIn')
+
+
+
   const handler = () => setVisible(true);
   const closeHandler = () => {
     setVisible(false);
@@ -31,6 +38,7 @@ export default function SignupModal() {
   };
 
   const handleSignUp = async () => {
+    setLoading(true)
     // event.preventDefault();
     if(password != confirmPassword){
       alert("passwords doesn't match")
@@ -41,8 +49,8 @@ export default function SignupModal() {
       const {user} = await signup_Email_password(email , password);
       await createUserDocumentFromAuth(user, { displayName });
       resetFormFields();
-      closeHandler();
-      router.push('/');
+      await router.push('/dashboard').then(closeHandler()).then(setLoggedIn(true))
+
     } catch (error) {
       if (error.code === 'auth/email-already-in-use') {
         alert('Cannot create user, email already in use');
@@ -141,8 +149,12 @@ export default function SignupModal() {
           <Button auto flat color="error" onPress={closeHandler}>
             Close
           </Button>
-          <Button auto onPress={handleSignUp}>
-            Sign Up
+          <Button auto onPress={handleSignUp}  >
+            {
+              loading?
+              <Loading color="currentColor" size="sm" />:
+              "Sign Up"
+            }
           </Button>
         </Modal.Footer>
       </Modal>

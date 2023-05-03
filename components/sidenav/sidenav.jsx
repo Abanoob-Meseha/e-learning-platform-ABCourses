@@ -1,5 +1,5 @@
 import styles from './sidenav.module.scss'
-import {Text} from '@nextui-org/react'
+import {Link, Text} from '@nextui-org/react'
 import {HiHome} from 'react-icons/hi'
 import {SiCoursera} from 'react-icons/si'
 import {MdOutlineAssignmentTurnedIn} from 'react-icons/md'
@@ -34,7 +34,7 @@ const Sidenav = () => {
             <Text size={30} className={styles.sidenav_item}><MdOutlineAssignmentTurnedIn/> Assignments</Text>
             <Text size={30} className={styles.sidenav_item}><ImFolderPlus/> Add Course</Text>
             <hr />
-            <Text size={30} className={styles.sidenav_item}><FiLogOut/> Logout</Text>
+            <Text size={30} className={styles.sidenav_item} ><FiLogOut/> Logout</Text>
         </div>
             
         <div hidden={!SmallFlag}>

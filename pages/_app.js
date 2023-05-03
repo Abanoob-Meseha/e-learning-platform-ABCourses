@@ -3,8 +3,13 @@ import { NextUIProvider } from '@nextui-org/react';
 import { SSRProvider } from '@react-aria/ssr';
 import ResponsiveNavbar from '../components/responsiveNavbar/responsiveNavbar';
 import Head from 'next/head';
+import { createGlobalState } from 'react-hooks-global-state';
 
-
+// Global States using npm install react-hooks-global-state
+export const { setGlobalState, useGlobalState } = createGlobalState({
+  loggedIn : false,
+  
+});
 
 function MyApp({ Component, pageProps }) {
   return (

@@ -3,9 +3,16 @@ import { useRouter } from 'next/router';
 import LoginModal from "../loginModal/loginModal";
 import SignupModal from "../signupModal/signupModal";
 import { useState } from "react";
+import { useGlobalState } from '../../pages/_app';
+import {FiLogOut} from 'react-icons/fi'
+
+
+
+
 
 export default function ResponsiveNavbar() {
-  const [loggedIn, setloggedIn] = useState(false)
+  const [loggedIn, setLoggedIn] = useGlobalState('loggedIn')
+
   const collapseItems = [
     "Home",
     "Courses",
@@ -38,7 +45,7 @@ export default function ResponsiveNavbar() {
             Courses
           </Navbar.Link>
           <Navbar.Link href="#mentors_section">Mentors</Navbar.Link>
-          <Navbar.Link href="#aboutUs_section">About us</Navbar.Link>
+          <Navbar.Link href="#partner_section">Our Partener</Navbar.Link>
         </Navbar.Content>
 
         {/* Sign in / up */}
@@ -64,7 +71,7 @@ export default function ResponsiveNavbar() {
                   as="button"
                   color="primary"
                   size="md"
-                  src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
+                  src="https://i.pravatar.cc/150?u=a042581f4e29026024d"
                 />
               </Dropdown.Trigger>
             </Navbar.Item>
@@ -78,7 +85,7 @@ export default function ResponsiveNavbar() {
                   Signed in as
                 </Text>
                 <Text b color="inherit" css={{ d: "flex" }}>
-                  zoey@example.com
+                  Abanoub@gmail.com
                 </Text>
               </Dropdown.Item>
               <Dropdown.Item key="settings" withDivider>
@@ -93,8 +100,8 @@ export default function ResponsiveNavbar() {
               <Dropdown.Item key="help_and_feedback" withDivider>
                 Help & Feedback
               </Dropdown.Item>
-              <Dropdown.Item key="logout" withDivider color="error">
-                Log Out
+              <Dropdown.Item key="logout" withDivider color="error" >
+                <Link href="/"><FiLogOut/> Log Out</Link>
               </Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
